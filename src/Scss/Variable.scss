@@ -1,0 +1,61 @@
+$blue: #16abf8;
+$red: #ff0000;
+$gray: #888888;
+$black: #212529;
+$fullBlack: #000000;
+$white: #f4f4f4;
+$fullWhite: #ffffff;
+
+$xtraSmall: 1rem;
+$small: 1.5rem;
+$xtraMedium: 2rem;
+$medium: 2.5rem;
+$large: 3rem;
+
+$transitionFast: 0.3s ease all;
+$transitionNormal: 0.5s ease all;
+$transitionSlow: 0.7s ease all;
+
+@mixin flex($flex, $align, $justify) {
+  display: flex;
+  flex-direction: $flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin button($color, $font) {
+  @include flex(row, center, center);
+  gap: 5px;
+  font-size: 1.1rem;
+  color: $font;
+  background-color: $color;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  transition: $transitionNormal;
+  cursor: pointer;
+
+  &:hover {
+    transition: $transitionNormal;
+    background-color: rgba($color: $color, $alpha: 0.7);
+  }
+
+  &:active {
+    transition: $transitionNormal;
+    background-color: rgba($color: $color, $alpha: 1);
+  }
+}
+
+@mixin scale($color) {
+  &:hover {
+    color: $color;
+    transition: $transitionNormal;
+    transform: scale(1.1, 1.1);
+  }
+
+  &:active {
+    transition: $transitionNormal;
+    transform: scale(0.9, 0.9);
+  }
+}

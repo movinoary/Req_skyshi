@@ -1,0 +1,293 @@
+@import "./Variable.scss";
+
+.nav {
+  @include flex(row, center, flex-start);
+  width: 100%;
+  height: 13vh;
+  background-color: $blue;
+  padding: 2rem 15%;
+  .link {
+    text-decoration: none;
+    h1 {
+      cursor: pointer;
+      text-transform: uppercase;
+      width: 100%;
+      font-size: $small;
+      color: $white;
+      transition: $transitionFast;
+      &:hover {
+        color: $fullWhite;
+        transition: $transitionFast;
+      }
+    }
+  }
+}
+
+.header {
+  @include flex(row, center, space-between);
+  width: 100%;
+  h1 {
+    font-size: $medium;
+    cursor: default;
+    text-transform: capitalize;
+    color: $black;
+    font-weight: 800;
+  }
+}
+
+.cardActivity {
+  @include flex(column, flex-start, space-between);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: $fullWhite;
+  box-shadow: 0 0 5px rgba($color: $black, $alpha: 0.3);
+
+  .cardLink {
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    h3 {
+      font-size: $small;
+      text-transform: capitalize;
+      color: $fullBlack;
+      font-weight: 700;
+    }
+  }
+  figcaption {
+    @include flex(row, center, space-between);
+    width: 100%;
+    color: $gray;
+    p {
+      cursor: default;
+      font-size: $xtraSmall;
+    }
+    span {
+      cursor: pointer;
+      display: flex;
+      font-size: $small;
+      transition: $transitionFast;
+      @include scale($red);
+    }
+  }
+}
+
+.cardListItem {
+  @include flex(row, center, space-between);
+  padding: 1.5rem 2rem;
+  width: 100%;
+  border-radius: 10px;
+  background-color: $fullWhite;
+  box-shadow: 0 0 5px rgba($color: $fullBlack, $alpha: 0.3);
+
+  figurecaption {
+    @include flex(row, center, space-between);
+    gap: 1.5rem;
+    input {
+      width: 30px;
+      cursor: pointer;
+    }
+    p {
+      font-size: $small;
+      font-weight: 500;
+      color: $black;
+      cursor: default;
+    }
+    span {
+      @include scale($black);
+      transition: $transitionFast;
+      display: flex;
+      font-size: $xtraSmall;
+      color: $gray;
+      cursor: pointer;
+    }
+  }
+  div {
+    span {
+      @include scale($red);
+      transition: $transitionFast;
+      display: flex;
+      font-size: $small;
+      color: $gray;
+      cursor: pointer;
+    }
+  }
+}
+
+.blank {
+  width: 100%;
+  height: 100%;
+  @include flex(row, center, center);
+}
+
+.buttonAdd {
+  @include button($blue, $white);
+}
+
+.modal {
+  @include flex(row, center, center);
+  position: fixed;
+  background-color: rgba($color: $fullBlack, $alpha: 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .modalAdd {
+    @include flex(column, flex-start, space-between);
+    width: 50%;
+    min-width: 420px;
+    height: 400px;
+    background-color: $fullWhite;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba($color: $black, $alpha: 0.7);
+
+    .modalTitle {
+      @include flex(row, center, space-between);
+      border-bottom: 1px solid $white;
+      padding: 15px 30px;
+      width: 100%;
+
+      h3 {
+        text-transform: capitalize;
+        font-size: $small;
+        color: $black;
+        cursor: default;
+      }
+      p {
+        @include scale($fullBlack);
+        font-size: $small;
+        color: $gray;
+        cursor: pointer;
+        transition: $transitionFast;
+      }
+    }
+
+    .modalForm {
+      @include flex(column, flex-start, space-between);
+      width: 100%;
+      height: 100%;
+      padding: 30px 30px;
+
+      div {
+        @include flex(column, flex-start, space-between);
+        gap: 10px;
+        width: 100%;
+
+        label {
+          font-size: $xtraSmall;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        input {
+          font-size: $xtraSmall;
+          padding: 10px;
+          background-color: transparent;
+          border: 2px solid $white;
+          border-radius: 5px;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+            border: 2px solid $blue;
+          }
+        }
+        select {
+          font-size: $xtraSmall;
+          padding: 10px;
+          background-color: $white;
+          border: 2px solid $white;
+          border-radius: 5px;
+          width: 200px;
+          text-transform: capitalize;
+          &:focus {
+            outline: none;
+            border: 2px solid $blue;
+          }
+        }
+      }
+      div:nth-child(3) {
+        @include flex(column, flex-end, flex-end);
+        padding-top: 15px;
+        width: 100%;
+        border-top: 1px solid $white;
+        button {
+          width: 150px;
+          @include button($blue, $white);
+        }
+      }
+    }
+  }
+
+  .modalDelete {
+    @include flex(column, center, center);
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: $fullWhite;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba($color: $black, $alpha: 0.7);
+
+    p,
+    h3 {
+      text-align: center;
+      font-size: $small;
+    }
+    div:nth-child(3) {
+      @include flex(row, center, center);
+      gap: 10px;
+      width: 100%;
+      button {
+        width: 120px;
+        &:nth-child(1) {
+          @include button($white, $fullBlack);
+        }
+        &:nth-child(2) {
+          @include button($red, $fullWhite);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+  .header {
+    h1 {
+      font-size: $small;
+    }
+  }
+
+  .buttonAdd {
+    font-size: $xtraSmall;
+  }
+
+  .modal {
+    .modalDelete {
+      p,
+      h3 {
+        text-align: center;
+        font-size: $xtraSmall;
+      }
+      div:nth-child(3) {
+        button {
+          width: 100px;
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .cardListItem {
+    padding: 1rem;
+    figurecaption {
+      gap: 1rem;
+      p {
+        font-size: $xtraSmall;
+      }
+    }
+  }
+}
