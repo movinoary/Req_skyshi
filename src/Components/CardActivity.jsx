@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as RiIcons from "react-icons/ri";
 import * as Components from "../Components";
 import * as cssModule from "../Scss";
 
 const CardActivity = () => {
   const [showModalDelete, setShowModalDelete] = useState(false);
-  const navigate = useNavigate();
 
   const DeleteModal = () => {
     setShowModalDelete(prev => !prev);

@@ -20,13 +20,13 @@ const CardListItem = () => {
         subTitle="Nama"
       />
       <figure className={cssModule.Components.cardListItem}>
-        <figurecaption>
+        <figcaption>
           <input type="checkbox" />
           <p>Telur Ayam</p>
           <span>
             <BsIcons.BsPencil />
           </span>
-        </figurecaption>
+        </figcaption>
         <div onClick={DeleteModal}>
           <span>
             <RiIcons.RiDeleteBinLine />

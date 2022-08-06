@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import * as MdIcons from "react-icons/md";
 import * as BsIcons from "react-icons/bs";
 import * as cssModule from "../Scss";
-import * as Assets from "../Assets/index";
 import * as Sub from "../Components/Sub";
 import * as Components from "../Components";
 

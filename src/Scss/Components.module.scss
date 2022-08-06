@@ -84,7 +84,7 @@
   background-color: $fullWhite;
   box-shadow: 0 0 5px rgba($color: $fullBlack, $alpha: 0.3);
 
-  figurecaption {
+  figcaption {
     @include flex(row, center, space-between);
     gap: 1.5rem;
     input {
@@ -283,7 +283,7 @@
 
   .cardListItem {
     padding: 1rem;
-    figurecaption {
+    figcaption {
       gap: 1rem;
       p {
         font-size: $xtraSmall;
