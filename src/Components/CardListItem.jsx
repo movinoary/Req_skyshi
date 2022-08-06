@@ -4,7 +4,7 @@ import * as RiIcons from "react-icons/ri";
 import * as cssModule from "../Scss";
 import * as Components from "../Components";
 
-const CardListItem = () => {
+const CardListItem = ({ item }) => {
   const [showModalDelete, setShowModalDelete] = useState(false);
 
   const DeleteModal = () => {
@@ -20,13 +20,14 @@ const CardListItem = () => {
         subTitle="Nama"
       />
       <figure className={cssModule.Components.cardListItem}>
-        <figurecaption>
+        <div>
           <input type="checkbox" />
-          <p>Telur Ayam</p>
+          <p>{item.priority}</p>
+          <p>{item.title}</p>
           <span>
             <BsIcons.BsPencil />
           </span>
-        </figurecaption>
+        </div>
         <div onClick={DeleteModal}>
           <span>
             <RiIcons.RiDeleteBinLine />

@@ -8,7 +8,7 @@ function App() {
       <Components.Nav />
       <Routes>
         <Route path="/" element={<Page.Home />} />
-        <Route path="detail-activity" element={<Page.DetailActivity />} />
+        <Route path="detail-activity/:id" element={<Page.DetailActivity />} />
       </Routes>
     </>
   );

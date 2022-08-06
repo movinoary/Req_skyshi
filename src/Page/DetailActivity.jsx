@@ -1,16 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as MdIcons from "react-icons/md";
 import * as BsIcons from "react-icons/bs";
 import * as cssModule from "../Scss";
 import * as Assets from "../Assets/index";
+import * as Configs from "../Configs";
 import * as Sub from "../Components/Sub";
 import * as Components from "../Components";
+import { useQuery } from "react-query";
 
 const DetailActivity = () => {
   const [click, setClick] = useState(false);
-  const navigate = useNavigate();
   const [showModalAdd, setShowModalAdd] = useState(false);
+  const navigate = useNavigate();
+  let { id } = useParams();
+
+  let { data } = useQuery("silabusCache", async () => {
+    const response = await Configs.API.get("/activity-groups/" + id);
+    console.log(response.data);
+    return response.data;
+  });
 
   const AddModal = () => {
     setShowModalAdd(prev => !prev);
@@ -38,7 +47,7 @@ const DetailActivity = () => {
               </form>
             ) : (
               <div className={cssModule.Page.inputHide}>
-                <h1>new activity</h1>
+                <h1>{data?.title}</h1>
               </div>
             )}
             <span onClick={HandleClick}>
@@ -49,9 +58,11 @@ const DetailActivity = () => {
             <Sub.ButtonAdd />
           </div>
         </header>
-        <content className={cssModule.Page.detailActivityBottom}>
-          <Components.CardListItem />
-        </content>
+        <div className={cssModule.Page.detailActivityBottom}>
+          {data?.todo_items.map((item, index) => (
+            <Components.CardListItem key={index} item={item} />
+          ))}
+        </div>
       </section>
     </>
   );
