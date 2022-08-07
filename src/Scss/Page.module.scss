@@ -25,6 +25,16 @@
       @include flex(row, center, space-between);
       gap: 1.5rem;
 
+      .inputActive,
+      .inputHide {
+        @include flex(row, center, center);
+        gap: 20px;
+        button {
+          font-size: $xtraSmall;
+          color: $gray;
+        }
+      }
+
       button {
         @include scale($fullBlack);
         transition: $transitionFast;
@@ -36,8 +46,8 @@
         cursor: pointer;
       }
       h1 {
-        font-size: $xtraMedium;
-        text-transform: capitalize;
+        font-size: $small;
+        cursor: default;
         transition: 1s;
       }
       input {
@@ -48,21 +58,77 @@
         border-bottom: 1px solid $fullBlack;
         transition: 1s;
       }
+    }
 
-      span {
-        @include scale($fullBlack);
-        transition: $transitionFast;
+    div:nth-child(2) {
+      @include flex(row, center, flex-end);
+      position: relative;
+      gap: 2rem;
+
+      .buttonFilter {
         display: flex;
-        font-size: $xtraSmall;
         color: $gray;
+        padding: 10px;
+        border: 1px solid rgba($color: $gray, $alpha: 0.5);
+        border-radius: 50px;
+        font-size: $xtraSmall;
+        transition: $transitionNormal;
+
+        &:hover {
+          border: 1px solid rgba($color: $blue, $alpha: 1);
+          color: $blue;
+        }
+      }
+      .dropdown {
+        position: absolute;
+        cursor: pointer;
+        top: 3rem;
+        left: 0;
+        width: 200px;
+        border-radius: 5px;
+        background-color: $fullWhite;
+        border: 1px solid rgba($color: $gray, $alpha: 0.5);
+        box-shadow: 0 0 5px rgba($color: $black, $alpha: 0.3);
+        transition: $transitionFast;
+        li {
+          @include flex(row, center, flex-start);
+          width: 100%;
+          gap: 10px;
+          list-style: none;
+          padding: 10px 15px;
+          border: 1px solid rgba($color: $gray, $alpha: 0.1);
+          span {
+            display: flex;
+            font-size: 1.3rem;
+            color: $blue;
+          }
+          p {
+            font-size: 1.1rem;
+          }
+
+          &:hover {
+            background-color: $white;
+            transition: $transitionFast;
+          }
+        }
       }
     }
   }
 
   .detailActivityBottom {
+    @include flex(column, flex-start, center);
+    gap: 1rem;
     width: 100%;
     height: 100%;
   }
+}
+
+.loading {
+  @include flex(column, center, center);
+  width: 100%;
+  height: 100%;
+  min-height: 87vh;
+  background-color: $white;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 576px) {

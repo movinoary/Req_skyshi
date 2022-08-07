@@ -6,7 +6,7 @@ export const API = axios.create({
 });
 
 export const GetDataApi = () => {
-  return useQuery("profilesCache", async () => {
+  return useQuery("activityCache", async () => {
     const response = await API.get("/activity-groups");
     return response.data.data;
   });

@@ -5,16 +5,28 @@ import * as Configs from "../Configs";
 import * as cssModule from "../Scss/index";
 
 const Home = () => {
-  const { data } = Configs.GetDataApi();
+  const { isLoading, data, refetch } = Configs.GetDataApi();
+
+  if (isLoading) {
+    return (
+      <div className={cssModule.Page.loading}>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <section className={cssModule.Page.page}>
-      <Components.Header title="activity" />
+      <Components.Header title="activity" refetch={refetch} />
       <div className={cssModule.Page.rowActivity}>
         {data?.length !== 0 ? (
           <>
             {data?.map((item, index) => (
-              <Components.CardActivity key={index} item={item} />
+              <Components.CardActivity
+                key={index}
+                item={item}
+                refetch={refetch}
+              />
             ))}
           </>
         ) : (
