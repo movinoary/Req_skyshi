@@ -55,15 +55,15 @@ const CardActivity = ({ item, refetch }) => {
         <div
           className={cssModule.Components.cardLink}
           onClick={() => navigate(`detail-activity/${item.id}`)}
+          data-cy="activity-item"
         >
-          <h3>{item.title}</h3>
+          <h3 data-cy="activity-item-title">{item.title}</h3>
         </div>
         <div className={cssModule.Components.cardDate}>
-          <p>{dateFormat(item.created_at, "d mmmm yyyy")}</p>
-          <span
-            onClick={() => handleDelete(item.id)}
-            data-cy="activity-item-delete-button"
-          >
+          <p data-cy="activity-item-date">
+            {dateFormat(item.created_at, "d mmmm yyyy")}
+          </p>
+          <span onClick={() => handleDelete(item.id)} data-cy="modal-delete">
             <RiIcons.RiDeleteBinLine />
           </span>
         </div>

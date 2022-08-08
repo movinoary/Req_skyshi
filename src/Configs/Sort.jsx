@@ -5,7 +5,7 @@ import * as cssModule from "../Scss";
 
 const Default = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList}>
+    <section className={cssModule.Page.sortList} data-cy="todo-empty-state">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items.map((item, index) => (
@@ -35,6 +35,7 @@ const AtoZ = ({ data, refetch }) => {
                 key={index}
                 item={item}
                 refetch={refetch}
+                data-cy="todo-sort-button"
               />
             ))}
         </>
@@ -57,6 +58,7 @@ const ZtoA = ({ data, refetch }) => {
                 key={index}
                 item={item}
                 refetch={refetch}
+                data-cy="todo-sort-button"
               />
             ))}
         </>
@@ -101,6 +103,7 @@ const Longest = ({ data, refetch }) => {
                 key={index}
                 item={item}
                 refetch={refetch}
+                data-cy="sort-selection"
               />
             ))}
         </>

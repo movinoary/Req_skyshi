@@ -69,7 +69,9 @@ const CardListItem = ({ item, refetch }) => {
         <div>
           {complete ? (
             <div className={cssModule.Components.complate}>
-              <button onClick={HandleClick}>V</button>
+              <button onClick={HandleClick} data-cy="todo-item-checkbox">
+                V
+              </button>
               <div className={`circle color-${item.priority}`} />
               <h3>{item.title}</h3>
               <span onClick={() => EditModal(item.id)}>
@@ -88,7 +90,10 @@ const CardListItem = ({ item, refetch }) => {
           )}
         </div>
         <div>
-          <span onClick={() => handleDelete(item.id)}>
+          <span
+            onClick={() => handleDelete(item.id)}
+            data-cy="todo-item-delete-button"
+          >
             <RiIcons.RiDeleteBinLine />
           </span>
         </div>

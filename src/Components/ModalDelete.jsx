@@ -42,6 +42,7 @@ const ModalDelete = ({
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
+          data-cy="activity-item-delete-button"
         >
           <div className={cssModule.Components.modalDelete}>
             <div>
@@ -52,8 +53,18 @@ const ModalDelete = ({
               <h3>"{subTitle}"</h3>
             </div>
             <div>
-              <button onClick={() => setShowModal(false)}>Batal</button>
-              <button onClick={handleDelete}>hapus</button>
+              <button
+                onClick={() => setShowModal(false)}
+                data-cy="modal-delete-cancel-button"
+              >
+                Batal
+              </button>
+              <button
+                onClick={handleDelete}
+                data-cy="activity-item-delete-button modal-delete-confirm-button"
+              >
+                hapus
+              </button>
             </div>
           </div>
         </section>

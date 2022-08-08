@@ -14,8 +14,8 @@ const Home = () => {
 
   return (
     <section className={cssModule.Page.page}>
-      <Components.Header title="activity" refetch={refetch} />
-      <div className={cssModule.Page.rowActivity}>
+      <Components.Header title="Activity" refetch={refetch} />
+      <div className={cssModule.Page.rowActivity} data-cy="activity-item">
         {data?.length !== 0 ? (
           <>
             {data?.map((item, index) => (

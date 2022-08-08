@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className={cssModule.Components.nav}>
       <Link to="/" className={cssModule.Components.link}>
-        <h1>to do list app</h1>
+        <h1 data-cy="header-title">TO DO LIST APP</h1>
       </Link>
     </nav>
   );

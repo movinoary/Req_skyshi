@@ -87,6 +87,7 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                   name="title"
                   value={title}
                   onChange={handleOnChange}
+                  data-cy="modal-add-name-input"
                 />
               </div>
               <div className={cssModule.Components.formSelect}>
@@ -100,16 +101,25 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                     onChange={handleOnChange}
                   >
                     <option hidden>priority</option>
-                    <option value="very-high">Very High</option>
-                    <option value="high">High</option>
+                    <option
+                      value="very-high"
+                      data-cy="modal-add-priority-dropdown"
+                    >
+                      Very High
+                    </option>
+                    <option value="high" data-cy="modal-add-priority-dropdown">
+                      High
+                    </option>
                     <option value="normal">Medium</option>
-                    <option value="low">Low</option>
+                    <option value="low" data-cy="modal-add-save-button">
+                      Low
+                    </option>
                     <option value="very-low">Very Low</option>
                   </select>
                 </div>
               </div>
               <div className={cssModule.Components.formButton}>
-                <button>simpan</button>
+                <button data-cy="modal-add-save-button">simpan</button>
               </div>
             </form>
           </figure>

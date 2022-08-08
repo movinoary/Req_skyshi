@@ -134,7 +134,9 @@ const DetailActivity = () => {
               </form>
             ) : (
               <div className={cssModule.Page.inputHide}>
-                <h1>{data?.title}</h1>
+                <h1 data-cy="todo-title" onClick={HandleClick}>
+                  {data?.title}
+                </h1>
                 <button onClick={HandleClick}>
                   <BsIcons.BsPencil />
                 </button>
@@ -145,6 +147,7 @@ const DetailActivity = () => {
             <span
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
+              data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
             </span>
@@ -159,7 +162,10 @@ const DetailActivity = () => {
                   ))}
               </ul>
             ) : null}
-            <SubComponents.ButtonAdd click={AddModal} />
+            <SubComponents.ButtonAdd
+              click={AddModal}
+              data-cy="todo-add-button"
+            />
           </div>
         </header>
         <div className={cssModule.Page.detailActivityBottom}>
