@@ -38,7 +38,7 @@ const Header = ({ title, refetch }) => {
 
   return (
     <header className={cssModule.Components.header}>
-      <h1 data-cy="header-title">{title}</h1>
+      <h1>{title}</h1>
       {message && message}
       <form onSubmit={e => handleOnSubmit.mutate(e)}>
         <SubComponents.ButtonAdd />
