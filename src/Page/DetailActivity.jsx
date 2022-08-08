@@ -48,9 +48,9 @@ const DetailActivity = () => {
             <Sub.ButtonAdd />
           </div>
         </header>
-        <content className={cssModule.Page.detailActivityBottom}>
+        <footer className={cssModule.Page.detailActivityBottom}>
           <Components.CardListItem />
-        </content>
+        </footer>
       </section>
     </>
   );
