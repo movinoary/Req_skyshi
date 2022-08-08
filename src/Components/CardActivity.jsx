@@ -55,7 +55,6 @@ const CardActivity = ({ item, refetch }) => {
         <div
           className={cssModule.Components.cardLink}
           onClick={() => navigate(`detail-activity/${item.id}`)}
-          data-cy="activity-item"
         >
           <h3>{item.title}</h3>
         </div>

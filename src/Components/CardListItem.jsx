@@ -65,11 +65,8 @@ const CardListItem = ({ item, refetch }) => {
         subTitle="Nama"
       />
       {message && message}
-      <figure
-        className={cssModule.Components.cardListItem}
-        data-cy="activity-item"
-      >
-        <div data-cy="todo-item-checkbox">
+      <figure className={cssModule.Components.cardListItem}>
+        <div>
           {complete ? (
             <div className={cssModule.Components.complate}>
               <button onClick={HandleClick}>V</button>

@@ -5,7 +5,7 @@ import * as cssModule from "../Scss";
 
 const Default = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList} data-cy="sort-selection">
+    <section className={cssModule.Page.sortList}>
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items.map((item, index) => (
@@ -25,7 +25,7 @@ const Default = ({ data, refetch }) => {
 
 const AtoZ = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList} data-cy="todo-sort-button">
+    <section className={cssModule.Page.sortList}>
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -47,7 +47,7 @@ const AtoZ = ({ data, refetch }) => {
 
 const ZtoA = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList} data-cy="todo-sort-button">
+    <section className={cssModule.Page.sortList}>
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -69,7 +69,7 @@ const ZtoA = ({ data, refetch }) => {
 
 const Latest = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList} data-cy="sort-selection">
+    <section className={cssModule.Page.sortList}>
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -91,7 +91,7 @@ const Latest = ({ data, refetch }) => {
 
 const Longest = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList} data-cy="sort-selection">
+    <section className={cssModule.Page.sortList}>
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -113,7 +113,7 @@ const Longest = ({ data, refetch }) => {
 
 const Complate = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList} data-cy="config-sort-complate">
+    <section className={cssModule.Page.sortList}>
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items

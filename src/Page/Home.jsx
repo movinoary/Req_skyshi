@@ -13,7 +13,7 @@ const Home = () => {
   }
 
   return (
-    <section className={cssModule.Page.page} data-cy="page-home">
+    <section className={cssModule.Page.page}>
       <Components.Header title="activity" refetch={refetch} />
       <div className={cssModule.Page.rowActivity}>
         {data?.length !== 0 ? (

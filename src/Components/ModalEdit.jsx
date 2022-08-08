@@ -73,7 +73,6 @@ const ModalEdit = ({ showModal, setShowModal, dataId, refetch }) => {
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
-          data-cy="components-modal-edit"
         >
           <figure className={cssModule.Components.modalAdd}>
             <div className={cssModule.Components.modalTitle}>

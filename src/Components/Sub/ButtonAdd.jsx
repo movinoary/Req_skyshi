@@ -4,11 +4,7 @@ import * as cssModule from "../../Scss";
 
 function ButtonAdd({ click }) {
   return (
-    <button
-      className={cssModule.Components.buttonAdd}
-      onClick={click}
-      data-cy="sub-components-add-button"
-    >
+    <button className={cssModule.Components.buttonAdd} onClick={click}>
       <AiIcons.AiOutlinePlus /> tambah
     </button>
   );

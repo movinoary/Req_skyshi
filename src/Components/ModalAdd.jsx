@@ -66,7 +66,6 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
-          data-cy="components-modal-add"
         >
           <figure className={cssModule.Components.modalAdd}>
             <div className={cssModule.Components.modalTitle}>
@@ -78,10 +77,7 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
               className={cssModule.Components.modalForm}
               onSubmit={e => handleOnSubmit.mutate(e)}
             >
-              <div
-                className={cssModule.Components.formInput}
-                data-cy="modal-add-name-input"
-              >
+              <div className={cssModule.Components.formInput}>
                 <label htmlFor="title">nama list item</label>
                 <input
                   type="text"
@@ -91,15 +87,11 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                   name="title"
                   value={title}
                   onChange={handleOnChange}
-                  data-cy="todo-add-button"
                 />
               </div>
               <div className={cssModule.Components.formSelect}>
                 <label>priority</label>
-                <div
-                  className={cssModule.Components.widthSelect}
-                  data-cy="modal-add-priority-dropdown"
-                >
+                <div className={cssModule.Components.widthSelect}>
                   <select
                     name="priority"
                     id="priority"
@@ -109,21 +101,14 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                   >
                     <option hidden>priority</option>
                     <option value="very-high">Very High</option>
-                    <option value="high" data-cy="modal-add-priority-dropdown">
-                      High
-                    </option>
+                    <option value="high">High</option>
                     <option value="normal">Medium</option>
-                    <option value="low" data-cy="modal-add-save-button">
-                      Low
-                    </option>
+                    <option value="low">Low</option>
                     <option value="very-low">Very Low</option>
                   </select>
                 </div>
               </div>
-              <div
-                className={cssModule.Components.formButton}
-                data-cy="modal-add-save-button"
-              >
+              <div className={cssModule.Components.formButton}>
                 <button>simpan</button>
               </div>
             </form>
