@@ -1,3 +1,5 @@
+import Alert from "./Alert";
 import ButtonAdd from "./ButtonAdd";
+import Loading from "./Loading";
 
-export { ButtonAdd };
+export { Alert, ButtonAdd, Loading };

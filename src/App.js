@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import * as Components from "./Components/index";
-import * as Page from "./Page/index";
+import * as Assets from "./Assets";
+import * as Components from "./Components";
+import * as Page from "./Page";
 
 function App() {
   return (
@@ -8,7 +9,11 @@ function App() {
       <Components.Nav />
       <Routes>
         <Route path="/" element={<Page.Home />} />
-        <Route path="detail-activity" element={<Page.DetailActivity />} />
+        <Route path="detail-activity/:id/*" element={<Page.DetailActivity />} />
+        <Route
+          path="*"
+          element={<Components.Blank image={Assets.BlankOne} />}
+        />
       </Routes>
     </>
   );

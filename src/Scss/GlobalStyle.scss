@@ -1,8 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "./Variable.scss";
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+}
+.color-very-high {
+  background-color: #ed4c5c;
+}
+
+.color-high {
+  background-color: #f8a541;
+}
+.color-normal {
+  background-color: #00a790;
+}
+.color-low {
+  background-color: #428bc1;
+}
+.color-very-low {
+  background-color: #8942c1;
+}
+
+::-webkit-scrollbar {
+  width: 17px;
+  z-index: 1;
+  background-color: $white;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $blue;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba($color: $blue, $alpha: 0.7);
 }
