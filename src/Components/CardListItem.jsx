@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "react-query";
 import * as BsIcons from "react-icons/bs";
 import * as RiIcons from "react-icons/ri";
@@ -41,13 +41,11 @@ const CardListItem = ({ item, refetch }) => {
     DeleteModal();
   };
 
-  useEffect(() => {
-    if (confirmDelete) {
-      setShowModalDelete(prev => !prev);
-      deleteById.mutate(idDelete);
-      setConfirmDelete(null);
-    }
-  }, [confirmDelete]);
+  if (confirmDelete) {
+    setShowModalDelete(prev => !prev);
+    deleteById.mutate(idDelete);
+    setConfirmDelete(null);
+  }
 
   return (
     <>

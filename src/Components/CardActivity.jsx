@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import dateFormat from "dateformat";
@@ -35,13 +35,11 @@ const CardActivity = ({ item, refetch }) => {
     DeleteModal();
   };
 
-  useEffect(() => {
-    if (confirmDelete) {
-      setShowModalDelete(prev => !prev);
-      deleteById.mutate(idDelete);
-      setConfirmDelete(null);
-    }
-  }, [confirmDelete]);
+  if (confirmDelete) {
+    setShowModalDelete(prev => !prev);
+    deleteById.mutate(idDelete);
+    setConfirmDelete(null);
+  }
 
   return (
     <>
