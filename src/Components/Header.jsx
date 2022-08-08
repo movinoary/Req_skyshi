@@ -7,7 +7,7 @@ import * as cssModule from "../Scss";
 const Header = ({ title, refetch }) => {
   const [message, setMessage] = useState(null);
   const form = {
-    title: "New Activity 1",
+    title: "New Activity",
   };
 
   useEffect(() => {
