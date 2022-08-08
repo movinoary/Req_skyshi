@@ -112,8 +112,11 @@ const DetailActivity = () => {
         refetch={refetch}
       />
       <section className={cssModule.Page.page} data-cy="page-detail-activity">
-        <header className={cssModule.Page.detailActivityTop}>
-          <div>
+        <header
+          className={cssModule.Page.detailActivityTop}
+          data-cy="activity-title"
+        >
+          <div data-cy="todo-sort-button">
             <button onClick={() => navigate("/")}>
               <MdIcons.MdArrowBackIosNew />
             </button>
@@ -135,7 +138,7 @@ const DetailActivity = () => {
             ) : (
               <div className={cssModule.Page.inputHide}>
                 <h1>{data?.title}</h1>
-                <button onClick={HandleClick}>
+                <button onClick={HandleClick} data-cy="todo-title">
                   <BsIcons.BsPencil />
                 </button>
               </div>
@@ -159,7 +162,10 @@ const DetailActivity = () => {
                   ))}
               </ul>
             ) : null}
-            <SubComponents.ButtonAdd click={AddModal} />
+            <SubComponents.ButtonAdd
+              click={AddModal}
+              data-cy="todo-add-button"
+            />
           </div>
         </header>
         <div className={cssModule.Page.detailActivityBottom}>

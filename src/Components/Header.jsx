@@ -37,10 +37,13 @@ const Header = ({ title, refetch }) => {
   });
 
   return (
-    <header className={cssModule.Components.header} data-cy="components-header">
+    <header className={cssModule.Components.header}>
       <h1>{title}</h1>
       {message && message}
-      <form onSubmit={e => handleOnSubmit.mutate(e)}>
+      <form
+        onSubmit={e => handleOnSubmit.mutate(e)}
+        data-cy="activity-add-button"
+      >
         <SubComponents.ButtonAdd />
       </form>
     </header>
