@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
 import * as RiIcons from "react-icons/ri";
 import * as Configs from "../Configs";
@@ -13,7 +13,6 @@ const CardActivity = ({ item, refetch }) => {
   const [idDelete, setIdDelete] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(null);
   const [message, setMessage] = useState(null);
-  const navigate = useNavigate();
 
   const deleteById = useMutation(async id => {
     try {
