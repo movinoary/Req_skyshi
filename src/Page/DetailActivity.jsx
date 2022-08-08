@@ -111,7 +111,7 @@ const DetailActivity = () => {
         dataId={id}
         refetch={refetch}
       />
-      <section className={cssModule.Page.page}>
+      <section className={cssModule.Page.page} data-cy="page-detail-activity">
         <header className={cssModule.Page.detailActivityTop}>
           <div>
             <button onClick={() => navigate("/")}>
@@ -121,6 +121,7 @@ const DetailActivity = () => {
               <form
                 className={cssModule.Page.inputActive}
                 onSubmit={e => handleSubmit.mutate(e)}
+                data-cy="todo-title"
               >
                 <input
                   type="text"
@@ -133,21 +134,18 @@ const DetailActivity = () => {
                 </button>
               </form>
             ) : (
-              <div className={cssModule.Page.inputHide}>
-                <h1 data-cy="todo-title" onClick={HandleClick}>
-                  {data?.title}
-                </h1>
+              <div className={cssModule.Page.inputHide} data-cy="todo-title">
+                <h1 onClick={HandleClick}>{data?.title}</h1>
                 <button onClick={HandleClick}>
                   <BsIcons.BsPencil />
                 </button>
               </div>
             )}
           </div>
-          <div>
+          <div data-cy="todo-sort-button">
             <span
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
-              data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
             </span>
@@ -162,13 +160,18 @@ const DetailActivity = () => {
                   ))}
               </ul>
             ) : null}
-            <SubComponents.ButtonAdd
-              click={AddModal}
-              data-cy="todo-add-button"
-            />
+            <div>
+              <SubComponents.ButtonAdd
+                click={AddModal}
+                data-cy="todo-add-button"
+              />
+            </div>
           </div>
         </header>
-        <div className={cssModule.Page.detailActivityBottom}>
+        <div
+          className={cssModule.Page.detailActivityBottom}
+          data-cy="todo-empty-state"
+        >
           <Routes>
             <Route
               path="/"
@@ -180,15 +183,33 @@ const DetailActivity = () => {
             />
             <Route
               path="terlama"
-              element={<Configs.Longest data={data} refetch={refetch} />}
+              element={
+                <Configs.Longest
+                  data={data}
+                  refetch={refetch}
+                  data-cy="sort-selection"
+                />
+              }
             />
             <Route
               path="a-to-z"
-              element={<Configs.AtoZ data={data} refetch={refetch} />}
+              element={
+                <Configs.AtoZ
+                  data={data}
+                  refetch={refetch}
+                  data-cy="todo-sort-button"
+                />
+              }
             />
             <Route
               path="z-to-a"
-              element={<Configs.ZtoA data={data} refetch={refetch} />}
+              element={
+                <Configs.ZtoA
+                  data={data}
+                  refetch={refetch}
+                  data-cy="todo-sort-button"
+                />
+              }
             />
             <Route
               path="belum-selesai"

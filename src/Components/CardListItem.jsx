@@ -21,7 +21,12 @@ const CardListItem = ({ item, refetch }) => {
     try {
       await Configs.API.delete(`/todo-items/${id}`);
       refetch();
-      const alert = <SubComponents.Alert title="todo list berhasil dihapus" />;
+      const alert = (
+        <SubComponents.Alert
+          data-cy="modal-information"
+          title="todo list berhasil dihapus"
+        />
+      );
       setMessage(alert);
     } catch (error) {
       console.log(error);
@@ -55,6 +60,7 @@ const CardListItem = ({ item, refetch }) => {
         setShowModal={setShowModalDelete}
         title="apakah anda yakin menghapus list item"
         subTitle={item.title}
+        data-cy="modal-delete-confirm-button"
       />
       <Components.ModalEdit
         showModal={showModalEdit}
@@ -66,12 +72,10 @@ const CardListItem = ({ item, refetch }) => {
       />
       {message && message}
       <figure className={cssModule.Components.cardListItem}>
-        <div>
+        <div data-cy="todo-item-checkbox">
           {complete ? (
             <div className={cssModule.Components.complate}>
-              <button onClick={HandleClick} data-cy="todo-item-checkbox">
-                V
-              </button>
+              <button onClick={HandleClick}>V</button>
               <div className={`circle color-${item.priority}`} />
               <h3>{item.title}</h3>
               <span onClick={() => EditModal(item.id)}>
@@ -89,11 +93,8 @@ const CardListItem = ({ item, refetch }) => {
             </div>
           )}
         </div>
-        <div>
-          <span
-            onClick={() => handleDelete(item.id)}
-            data-cy="todo-item-delete-button"
-          >
+        <div data-cy="todo-item-delete-button">
+          <span onClick={() => handleDelete(item.id)}>
             <RiIcons.RiDeleteBinLine />
           </span>
         </div>

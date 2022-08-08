@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import dateFormat from "dateformat";
 import * as RiIcons from "react-icons/ri";
 import * as Configs from "../Configs";
@@ -49,22 +49,25 @@ const CardActivity = ({ item, refetch }) => {
         setShowModal={setShowModalDelete}
         title="apakah anda yakin menghapus activity"
         subTitle={item.title}
+        data-cy="modal-delete"
       />
       {message && message}
-      <figure className={cssModule.Components.cardActivity}>
-        <div
+      <figure
+        className={cssModule.Components.cardActivity}
+        data-cy="components-card-activity"
+      >
+        <Link
           className={cssModule.Components.cardLink}
-          onClick={() => navigate(`detail-activity/${item.id}`)}
-          data-cy="activity-item"
+          to={`detail-activity/${item.id}`}
         >
           <h3 data-cy="activity-item-title">{item.title}</h3>
-        </div>
+        </Link>
         <div className={cssModule.Components.cardDate}>
           <p data-cy="activity-item-date">
             {dateFormat(item.created_at, "d mmmm yyyy")}
           </p>
-          <span onClick={() => handleDelete(item.id)} data-cy="modal-delete">
-            <RiIcons.RiDeleteBinLine />
+          <span onClick={() => handleDelete(item.id)}>
+            <RiIcons.RiDeleteBinLine data-cy="activity-item-delete-button" />
           </span>
         </div>
       </figure>
