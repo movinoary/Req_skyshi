@@ -43,7 +43,10 @@ const ModalDelete = ({
           onClick={closeModal}
           ref={modalRef}
         >
-          <div className={cssModule.Components.modalDelete}>
+          <div
+            className={cssModule.Components.modalDelete}
+            data-cy="components-modal-delete"
+          >
             <div>
               <img src={Assets.DangerBig} alt="danger" />
             </div>

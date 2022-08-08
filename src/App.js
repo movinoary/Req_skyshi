@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { ReactQueryDevtools } from "react-query/devtools";
 import * as Assets from "./Assets";
 import * as Components from "./Components";
 import * as Page from "./Page";
@@ -16,7 +15,6 @@ function App() {
           element={<Components.Blank image={Assets.BlankOne} />}
         />
       </Routes>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </>
   );
 }

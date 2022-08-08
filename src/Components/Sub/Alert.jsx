@@ -4,7 +4,7 @@ import * as cssModule from "../../Scss";
 
 const Alert = ({ title }) => {
   return (
-    <div className={cssModule.Components.alert}>
+    <div className={cssModule.Components.alert} data-cy="sub-components-alert">
       <div>
         <span>
           <CgIcons.CgDanger />

@@ -4,7 +4,7 @@ import * as cssModule from "../Scss";
 
 const Nav = () => {
   return (
-    <nav className={cssModule.Components.nav}>
+    <nav className={cssModule.Components.nav} data-cy="components-nav">
       <Link to="/" className={cssModule.Components.link}>
         <h1>to do list app</h1>
       </Link>

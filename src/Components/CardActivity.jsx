@@ -6,7 +6,7 @@ import * as RiIcons from "react-icons/ri";
 import * as Configs from "../Configs";
 import * as Components from "../Components";
 import * as cssModule from "../Scss";
-import * as Sub from "./Sub";
+import * as SubComponents from "./Sub";
 
 const CardActivity = ({ item, refetch }) => {
   const [showModalDelete, setShowModalDelete] = useState(false);
@@ -19,7 +19,7 @@ const CardActivity = ({ item, refetch }) => {
     try {
       await Configs.API.delete(`/activity-groups/${id}`);
       refetch();
-      const alert = <Sub.Alert title="activity berhasil dihapus" />;
+      const alert = <SubComponents.Alert title="activity berhasil dihapus" />;
       setMessage(alert);
     } catch (error) {
       console.log(error);
@@ -53,7 +53,10 @@ const CardActivity = ({ item, refetch }) => {
         subTitle={item.title}
       />
       {message && message}
-      <figure className={cssModule.Components.cardActivity}>
+      <figure
+        className={cssModule.Components.cardActivity}
+        data-cy="components-card-activity"
+      >
         <div
           className={cssModule.Components.cardLink}
           onClick={() => navigate(`detail-activity/${item.id}`)}

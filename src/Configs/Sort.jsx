@@ -1,10 +1,11 @@
 import React from "react";
 import * as Assets from "../Assets";
 import * as Components from "../Components";
+import * as cssModule from "../Scss";
 
 const Default = ({ data, refetch }) => {
   return (
-    <>
+    <section className={cssModule.Page.sortList} data-cy="config-sort-default">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items.map((item, index) => (
@@ -18,13 +19,13 @@ const Default = ({ data, refetch }) => {
       ) : (
         <Components.Blank image={Assets.BlankTwo} />
       )}
-    </>
+    </section>
   );
 };
 
 const AtoZ = ({ data, refetch }) => {
   return (
-    <>
+    <section className={cssModule.Page.sortList} data-cy="config-sort-a-to-z">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -40,13 +41,13 @@ const AtoZ = ({ data, refetch }) => {
       ) : (
         <Components.Blank image={Assets.BlankTwo} />
       )}
-    </>
+    </section>
   );
 };
 
 const ZtoA = ({ data, refetch }) => {
   return (
-    <>
+    <section className={cssModule.Page.sortList} data-cy="config-sort-z-to-a">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -62,13 +63,13 @@ const ZtoA = ({ data, refetch }) => {
       ) : (
         <Components.Blank image={Assets.BlankTwo} />
       )}
-    </>
+    </section>
   );
 };
 
 const Latest = ({ data, refetch }) => {
   return (
-    <>
+    <section className={cssModule.Page.sortList} data-cy="config-sort-latest">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -84,13 +85,13 @@ const Latest = ({ data, refetch }) => {
       ) : (
         <Components.Blank image={Assets.BlankTwo} />
       )}
-    </>
+    </section>
   );
 };
 
 const Longest = ({ data, refetch }) => {
   return (
-    <>
+    <section className={cssModule.Page.sortList} data-cy="config-sort-longest">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -106,13 +107,13 @@ const Longest = ({ data, refetch }) => {
       ) : (
         <Components.Blank image={Assets.BlankTwo} />
       )}
-    </>
+    </section>
   );
 };
 
 const Complate = ({ data, refetch }) => {
   return (
-    <>
+    <section className={cssModule.Page.sortList} data-cy="config-sort-complate">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items
@@ -128,7 +129,7 @@ const Complate = ({ data, refetch }) => {
       ) : (
         <Components.Blank image={Assets.BlankTwo} />
       )}
-    </>
+    </section>
   );
 };
 

@@ -6,8 +6,8 @@ import * as BsIcons from "react-icons/bs";
 import * as RiIcons from "react-icons/ri";
 import * as cssModule from "../Scss";
 import * as Configs from "../Configs";
-import * as Sub from "../Components/Sub";
 import * as Components from "../Components";
+import * as SubComponents from "../Components/Sub";
 
 const DataMenu = [
   {
@@ -100,11 +100,7 @@ const DetailActivity = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className={cssModule.Page.loading}>
-        <h1>Loading...</h1>
-      </div>
-    );
+    return <SubComponents.Loading />;
   }
 
   return (
@@ -115,7 +111,7 @@ const DetailActivity = () => {
         dataId={id}
         refetch={refetch}
       />
-      <section className={cssModule.Page.page}>
+      <section className={cssModule.Page.page} data-cy="page-detail-activity">
         <header className={cssModule.Page.detailActivityTop}>
           <div>
             <button onClick={() => navigate("/")}>
@@ -154,15 +150,16 @@ const DetailActivity = () => {
             </span>
             {showMenu ? (
               <ul className={cssModule.Page.dropdown}>
-                {DataMenu.map((item, index) => (
-                  <li onClick={() => LinkSort(item.link)} key={index}>
-                    <span>{item.icon}</span>
-                    <p>{item.title}</p>
-                  </li>
-                ))}
+                {DataMenu &&
+                  DataMenu.map((item, index) => (
+                    <li onClick={() => LinkSort(item.link)} key={index}>
+                      <span>{item.icon}</span>
+                      <p>{item.title}</p>
+                    </li>
+                  ))}
               </ul>
             ) : null}
-            <Sub.ButtonAdd click={AddModal} />
+            <SubComponents.ButtonAdd click={AddModal} />
           </div>
         </header>
         <div className={cssModule.Page.detailActivityBottom}>

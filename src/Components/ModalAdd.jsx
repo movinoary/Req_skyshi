@@ -66,6 +66,7 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
+          data-cy="components-modal-add"
         >
           <figure className={cssModule.Components.modalAdd}>
             <div className={cssModule.Components.modalTitle}>

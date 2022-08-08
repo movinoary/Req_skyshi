@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import * as Configs from "../Configs";
-import * as Sub from "./Sub";
+import * as SubComponents from "./Sub";
 import * as cssModule from "../Scss";
 
 const Header = ({ title, refetch }) => {
@@ -29,7 +29,7 @@ const Header = ({ title, refetch }) => {
 
       await Configs.API.post("/activity-groups", body, config);
       refetch();
-      const alert = <Sub.Alert title="berhasil menambahkan data" />;
+      const alert = <SubComponents.Alert title="berhasil menambahkan data" />;
       setMessage(alert);
     } catch (error) {
       console.log(error);
@@ -37,11 +37,11 @@ const Header = ({ title, refetch }) => {
   });
 
   return (
-    <header className={cssModule.Components.header}>
+    <header className={cssModule.Components.header} data-cy="components-header">
       <h1>{title}</h1>
       {message && message}
       <form onSubmit={e => handleOnSubmit.mutate(e)}>
-        <Sub.ButtonAdd />
+        <SubComponents.ButtonAdd />
       </form>
     </header>
   );

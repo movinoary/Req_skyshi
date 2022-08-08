@@ -73,6 +73,7 @@ const ModalEdit = ({ showModal, setShowModal, dataId, refetch }) => {
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
+          data-cy="components-modal-edit"
         >
           <figure className={cssModule.Components.modalAdd}>
             <div className={cssModule.Components.modalTitle}>
@@ -84,7 +85,6 @@ const ModalEdit = ({ showModal, setShowModal, dataId, refetch }) => {
               className={cssModule.Components.modalForm}
               onSubmit={e => handleSubmit.mutate(e)}
             >
-              {dataId}
               <div className={cssModule.Components.formInput}>
                 <label htmlFor="title">nama list item</label>
                 <input

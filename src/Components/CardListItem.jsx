@@ -5,7 +5,7 @@ import * as RiIcons from "react-icons/ri";
 import * as Configs from "../Configs";
 import * as cssModule from "../Scss";
 import * as Components from "../Components";
-import * as Sub from "./Sub";
+import * as SubComponents from "./Sub";
 
 const CardListItem = ({ item, refetch }) => {
   const [showModalDelete, setShowModalDelete] = useState(false);
@@ -21,7 +21,7 @@ const CardListItem = ({ item, refetch }) => {
     try {
       await Configs.API.delete(`/todo-items/${id}`);
       refetch();
-      const alert = <Sub.Alert title="todo list berhasil dihapus" />;
+      const alert = <SubComponents.Alert title="todo list berhasil dihapus" />;
       setMessage(alert);
     } catch (error) {
       console.log(error);
@@ -67,7 +67,10 @@ const CardListItem = ({ item, refetch }) => {
         subTitle="Nama"
       />
       {message && message}
-      <figure className={cssModule.Components.cardListItem}>
+      <figure
+        className={cssModule.Components.cardListItem}
+        data-cy="components-card-list-item"
+      >
         <div>
           {complete ? (
             <div className={cssModule.Components.complate}>
