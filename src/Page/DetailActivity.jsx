@@ -154,12 +154,8 @@ const DetailActivity = () => {
               <ul className={cssModule.Page.dropdown}>
                 {DataMenu &&
                   DataMenu.map((item, index) => (
-                    <li
-                      onClick={() => navigate(item.link)}
-                      key={index}
-                      data-cy={item.data}
-                    >
-                      <span>{item.icon}</span>
+                    <li onClick={() => navigate(item.link)} key={index}>
+                      <span data-cy={item.data}>{item.icon}</span>
                       <p>{item.title}</p>
                     </li>
                   ))}
