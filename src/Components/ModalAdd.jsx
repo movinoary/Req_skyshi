@@ -66,6 +66,7 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
+          data-cy="modal-add"
         >
           <figure className={cssModule.Components.modalAdd}>
             <div className={cssModule.Components.modalTitle}>
@@ -99,11 +100,17 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                     required
                     value={priority}
                     onChange={handleOnChange}
-                    data-cy="modal-add-priority-dropdown"
                   >
                     <option hidden>priority</option>
-                    <option value="very-high">Very High</option>
-                    <option value="high">High</option>
+                    <option
+                      value="very-high"
+                      data-cy="modal-add-priority-dropdown"
+                    >
+                      Very High
+                    </option>
+                    <option value="high" data-cy="modal-add-priority-dropdown">
+                      High
+                    </option>
                     <option value="normal">Medium</option>
                     <option value="low">Low</option>
                     <option value="very-low">Very Low</option>

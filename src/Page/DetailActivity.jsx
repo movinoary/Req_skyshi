@@ -130,6 +130,7 @@ const DetailActivity = () => {
                   name="title"
                   onChange={handleChange}
                   value={form.title}
+                  data-cy="todo-title"
                 />
                 <button>
                   <BsIcons.BsPencil />
@@ -174,7 +175,7 @@ const DetailActivity = () => {
               onClick={AddModal}
               data-cy="todo-add-button"
             >
-              + tambah
+              + Tambah
             </button>
           </div>
         </header>
