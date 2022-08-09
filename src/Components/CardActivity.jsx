@@ -51,11 +51,13 @@ const CardActivity = ({ item, refetch }) => {
         subTitle={item.title}
       />
       {message && message}
-      <figure className={cssModule.Components.cardActivity}>
+      <figure
+        className={cssModule.Components.cardActivity}
+        data-cy="activity-item"
+      >
         <div
           className={cssModule.Components.cardLink}
           onClick={() => navigate(`detail-activity/${item.id}`)}
-          data-cy="activity-item"
         >
           <h3 data-cy="activity-item-title">{item.title}</h3>
         </div>
