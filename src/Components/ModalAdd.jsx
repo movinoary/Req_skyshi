@@ -100,7 +100,6 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                     required
                     value={priority}
                     onChange={handleOnChange}
-                    data-cy="modal-add-priority-dropdown"
                   >
                     <option hidden>priority</option>
                     <option value="very-high">Very High</option>
@@ -111,7 +110,10 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                   </select>
                 </div>
               </div>
-              <div className={cssModule.Components.formButton}>
+              <div
+                className={cssModule.Components.formButton}
+                data-cy="todo-add-button"
+              >
                 <button data-cy="modal-add-save-button">simpan</button>
               </div>
             </form>
