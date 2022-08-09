@@ -45,7 +45,7 @@ const Header = ({ title, refetch }) => {
           className={cssModule.Components.buttonAdd}
           data-cy="activity-add-button"
         >
-          + tambah
+          + Tambah
         </button>
       </form>
     </header>

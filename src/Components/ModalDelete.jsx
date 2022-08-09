@@ -42,7 +42,7 @@ const ModalDelete = ({
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
-          data-cy="modal-delete"
+          data-cy="activity-item-delete-button"
         >
           <div className={cssModule.Components.modalDelete}>
             <div>
