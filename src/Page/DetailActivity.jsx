@@ -146,7 +146,6 @@ const DetailActivity = () => {
             <button
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
-              data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
             </button>
@@ -155,7 +154,7 @@ const DetailActivity = () => {
                 {DataMenu &&
                   DataMenu.map((item, index) => (
                     <li onClick={() => navigate(item.link)} key={index}>
-                      <span data-cy={item.data}>{item.icon}</span>
+                      <span>{item.icon}</span>
                       <p>{item.title}</p>
                     </li>
                   ))}
