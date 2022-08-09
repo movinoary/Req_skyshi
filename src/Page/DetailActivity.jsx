@@ -124,13 +124,13 @@ const DetailActivity = () => {
               <form
                 className={cssModule.Page.inputActive}
                 onSubmit={e => handleSubmit.mutate(e)}
+                data-cy="todo-title"
               >
                 <input
                   type="text"
                   name="title"
                   onChange={handleChange}
                   value={form.title}
-                  data-cy="todo-title"
                 />
                 <button>
                   <BsIcons.BsPencil />
