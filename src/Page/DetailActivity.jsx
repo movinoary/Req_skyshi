@@ -19,16 +19,19 @@ const DataMenu = [
     icon: <RiIcons.RiSortAsc />,
     title: "Terlama",
     link: "terlama",
+    data: "sort-selection",
   },
   {
     icon: <BsIcons.BsSortAlphaDown />,
     title: "A - Z",
     link: "a-to-z",
+    data: "todo-sort-button",
   },
   {
     icon: <BsIcons.BsSortAlphaDownAlt />,
     title: "Z - A",
     link: "z-to-a",
+    data: "todo-sort-button",
   },
   {
     icon: <BsIcons.BsArrowDownUp />,
@@ -111,7 +114,7 @@ const DetailActivity = () => {
         dataId={id}
         refetch={refetch}
       />
-      <section className={cssModule.Page.page} data-cy="page-detail-activity">
+      <section className={cssModule.Page.page}>
         <header className={cssModule.Page.detailActivityTop}>
           <div>
             <button onClick={() => navigate("/")}>
@@ -121,7 +124,6 @@ const DetailActivity = () => {
               <form
                 className={cssModule.Page.inputActive}
                 onSubmit={e => handleSubmit.mutate(e)}
-                data-cy="todo-title"
               >
                 <input
                   type="text"
@@ -134,38 +136,46 @@ const DetailActivity = () => {
                 </button>
               </form>
             ) : (
-              <div className={cssModule.Page.inputHide} data-cy="todo-title">
-                <h1 onClick={HandleClick}>{data?.title}</h1>
+              <div className={cssModule.Page.inputHide}>
+                <h1 onClick={HandleClick} data-cy="todo-title">
+                  {data?.title}
+                </h1>
                 <button onClick={HandleClick}>
                   <BsIcons.BsPencil />
                 </button>
               </div>
             )}
           </div>
-          <div data-cy="todo-sort-button">
-            <span
+          <div>
+            <button
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
+              data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
-            </span>
+            </button>
             {showMenu ? (
               <ul className={cssModule.Page.dropdown}>
                 {DataMenu &&
                   DataMenu.map((item, index) => (
-                    <li onClick={() => LinkSort(item.link)} key={index}>
+                    <li
+                      onClick={() => LinkSort(item.link)}
+                      key={index}
+                      data-cy={item.data}
+                    >
                       <span>{item.icon}</span>
                       <p>{item.title}</p>
                     </li>
                   ))}
               </ul>
             ) : null}
-            <div>
-              <SubComponents.ButtonAdd
-                click={AddModal}
-                data-cy="todo-add-button"
-              />
-            </div>
+            <button
+              className={cssModule.Components.buttonAdd}
+              onClick={AddModal}
+              data-cy="todo-add-button"
+            >
+              + tambah
+            </button>
           </div>
         </header>
         <div
@@ -183,33 +193,15 @@ const DetailActivity = () => {
             />
             <Route
               path="terlama"
-              element={
-                <Configs.Longest
-                  data={data}
-                  refetch={refetch}
-                  data-cy="sort-selection"
-                />
-              }
+              element={<Configs.Longest data={data} refetch={refetch} />}
             />
             <Route
               path="a-to-z"
-              element={
-                <Configs.AtoZ
-                  data={data}
-                  refetch={refetch}
-                  data-cy="todo-sort-button"
-                />
-              }
+              element={<Configs.AtoZ data={data} refetch={refetch} />}
             />
             <Route
               path="z-to-a"
-              element={
-                <Configs.ZtoA
-                  data={data}
-                  refetch={refetch}
-                  data-cy="todo-sort-button"
-                />
-              }
+              element={<Configs.ZtoA data={data} refetch={refetch} />}
             />
             <Route
               path="belum-selesai"

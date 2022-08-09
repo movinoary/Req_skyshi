@@ -66,8 +66,10 @@
       cursor: default;
       font-size: $xtraSmall;
     }
-    span {
+    button {
       cursor: pointer;
+      border: none;
+      background-color: transparent;
       display: flex;
       font-size: $small;
       transition: $transitionFast;
@@ -140,9 +142,11 @@
     }
   }
   div:nth-child(2) {
-    span {
+    button {
       @include scale($red);
       transition: $transitionFast;
+      border: none;
+      background-color: transparent;
       display: flex;
       font-size: $small;
       color: $gray;

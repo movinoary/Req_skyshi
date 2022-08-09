@@ -9,7 +9,7 @@ const Alert = ({ title }) => {
         <span>
           <CgIcons.CgDanger />
         </span>
-        <p data-cy="modal-information">{title}</p>
+        <p>{title}</p>
       </div>
     </div>
   );

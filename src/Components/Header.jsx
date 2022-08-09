@@ -41,7 +41,12 @@ const Header = ({ title, refetch }) => {
       <h1 data-cy="activity-title">{title}</h1>
       {message && message}
       <form onSubmit={e => handleOnSubmit.mutate(e)}>
-        <SubComponents.ButtonAdd data-cy="activity-add-button" />
+        <button
+          className={cssModule.Components.buttonAdd}
+          data-cy="activity-add-button"
+        >
+          + tambah
+        </button>
       </form>
     </header>
   );

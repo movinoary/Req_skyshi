@@ -23,8 +23,8 @@ const CardListItem = ({ item, refetch }) => {
       refetch();
       const alert = (
         <SubComponents.Alert
+          title="Todo List Berhasil Dihapus"
           data-cy="modal-information"
-          title="todo list berhasil dihapus"
         />
       );
       setMessage(alert);
@@ -60,7 +60,6 @@ const CardListItem = ({ item, refetch }) => {
         setShowModal={setShowModalDelete}
         title="apakah anda yakin menghapus list item"
         subTitle={item.title}
-        data-cy="modal-delete-confirm-button"
       />
       <Components.ModalEdit
         showModal={showModalEdit}
@@ -72,12 +71,12 @@ const CardListItem = ({ item, refetch }) => {
       />
       {message && message}
       <figure className={cssModule.Components.cardListItem}>
-        <div data-cy="todo-item-checkbox">
+        <div>
           {complete ? (
             <div className={cssModule.Components.complate}>
               <button onClick={HandleClick}>V</button>
               <div className={`circle color-${item.priority}`} />
-              <h3>{item.title}</h3>
+              <h3 data-cy="todo-item-title">{item.title}</h3>
               <span onClick={() => EditModal(item.id)}>
                 <BsIcons.BsPencil />
               </span>
@@ -93,10 +92,13 @@ const CardListItem = ({ item, refetch }) => {
             </div>
           )}
         </div>
-        <div data-cy="todo-item-delete-button">
-          <span onClick={() => handleDelete(item.id)}>
+        <div>
+          <button
+            onClick={() => handleDelete(item.id)}
+            data-cy="todo-item-delete-button"
+          >
             <RiIcons.RiDeleteBinLine />
-          </span>
+          </button>
         </div>
       </figure>
     </>

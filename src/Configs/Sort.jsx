@@ -5,7 +5,7 @@ import * as cssModule from "../Scss";
 
 const Default = ({ data, refetch }) => {
   return (
-    <section className={cssModule.Page.sortList}>
+    <section className={cssModule.Page.sortList} data-cy="todo-empty-state">
       {data?.todo_items.length !== 0 ? (
         <>
           {data?.todo_items.map((item, index) => (
