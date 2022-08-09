@@ -42,7 +42,7 @@ const ModalDelete = ({
           className={cssModule.Components.modal}
           onClick={closeModal}
           ref={modalRef}
-          data-cy="activity-item-delete-button"
+          data-cy="modal-delete"
         >
           <div className={cssModule.Components.modalDelete}>
             <div>
@@ -59,10 +59,7 @@ const ModalDelete = ({
               >
                 Batal
               </button>
-              <button
-                onClick={handleDelete}
-                data-cy="activity-item-delete-button"
-              >
+              <button onClick={handleDelete} data-cy="modal-delete">
                 hapus
               </button>
             </div>
