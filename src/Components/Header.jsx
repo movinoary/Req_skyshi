@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "react-query";
 import * as Configs from "../Configs";
 import * as SubComponents from "./Sub";
@@ -9,12 +9,6 @@ const Header = ({ title, refetch }) => {
   const form = {
     title: "New Activity",
   };
-
-  useEffect(() => {
-    setTimeout(function () {
-      setMessage();
-    }, 3000);
-  }, []);
 
   const handleOnSubmit = useMutation(async e => {
     try {

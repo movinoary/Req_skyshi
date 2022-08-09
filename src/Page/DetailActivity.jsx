@@ -121,13 +121,13 @@ const DetailActivity = () => {
                 onSubmit={e => handleSubmit.mutate(e)}
                 data-cy="todo-title"
               >
-                <input
-                  type="text"
-                  name="title"
-                  onChange={handleChange}
-                  value={form.title}
-                />
                 <button>
+                  <input
+                    type="text"
+                    name="title"
+                    onChange={handleChange}
+                    value={form.title}
+                  />
                   <BsIcons.BsPencil />
                 </button>
               </form>
@@ -146,6 +146,7 @@ const DetailActivity = () => {
             <button
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
+              data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
             </button>
@@ -153,7 +154,11 @@ const DetailActivity = () => {
               <ul className={cssModule.Page.dropdown}>
                 {DataMenu &&
                   DataMenu.map((item, index) => (
-                    <li onClick={() => navigate(item.link)} key={index}>
+                    <li
+                      onClick={() => navigate(item.link)}
+                      key={index}
+                      data-cy={item.data}
+                    >
                       <span>{item.icon}</span>
                       <p>{item.title}</p>
                     </li>

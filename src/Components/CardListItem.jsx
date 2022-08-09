@@ -83,10 +83,7 @@ const CardListItem = ({ item, refetch }) => {
             </div>
           ) : (
             <div className={cssModule.Components.noComplate}>
-              <button
-                onClick={HandleClick}
-                data-cy="todo-item-checkbox"
-              ></button>
+              <button onClick={HandleClick}></button>
               <div className={`circle color-${item.priority}`} />
               <h3>{item.title}</h3>
               <span onClick={() => EditModal(item.id)}>

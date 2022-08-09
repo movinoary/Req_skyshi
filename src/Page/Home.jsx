@@ -1,16 +1,11 @@
 import React from "react";
 import * as Assets from "../Assets";
 import * as Components from "../Components";
-import * as SubComponents from "../Components/Sub";
 import * as Configs from "../Configs";
 import * as cssModule from "../Scss/index";
 
 const Home = () => {
-  const { isLoading, data, refetch } = Configs.GetDataApi();
-
-  if (isLoading) {
-    return <SubComponents.Loading />;
-  }
+  const { data, refetch } = Configs.GetDataApi();
 
   return (
     <section className={cssModule.Page.page}>
