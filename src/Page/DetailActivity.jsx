@@ -171,7 +171,7 @@ const DetailActivity = () => {
         </header>
         <div
           className={cssModule.Page.detailActivityBottom}
-          data-cy="todo-empty-state"
+          data-cy="todo-item"
         >
           <Routes>
             <Route
