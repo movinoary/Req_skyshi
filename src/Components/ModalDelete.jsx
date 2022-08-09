@@ -61,7 +61,7 @@ const ModalDelete = ({
               </button>
               <button
                 onClick={handleDelete}
-                data-cy="activity-item-delete-button"
+                data-cy="modal-delete-confirm-button"
               >
                 hapus
               </button>
