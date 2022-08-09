@@ -19,7 +19,12 @@ const CardActivity = ({ item, refetch }) => {
     try {
       await Configs.API.delete(`/activity-groups/${id}`);
       refetch();
-      const alert = <SubComponents.Alert title="activity berhasil dihapus" />;
+      const alert = (
+        <SubComponents.Alert
+          title="Activity Berhasil Dihapus"
+          data-cy="modal-information"
+        />
+      );
       setMessage(alert);
     } catch (error) {
       console.log(error);
@@ -63,9 +68,9 @@ const CardActivity = ({ item, refetch }) => {
           <p data-cy="activity-item-date">
             {dateFormat(item.created_at, "d mmmm yyyy")}
           </p>
-          <span onClick={() => handleDelete(item.id)} data-cy="modal-delete">
+          <button onClick={() => handleDelete(item.id)} data-cy="modal-delete">
             <RiIcons.RiDeleteBinLine />
-          </span>
+          </button>
         </div>
       </figure>
     </>

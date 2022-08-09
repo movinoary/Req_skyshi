@@ -19,16 +19,19 @@ const DataMenu = [
     icon: <RiIcons.RiSortAsc />,
     title: "Terlama",
     link: "terlama",
+    data: "sort-selection",
   },
   {
     icon: <BsIcons.BsSortAlphaDown />,
     title: "A - Z",
     link: "a-to-z",
+    data: "todo-sort-button",
   },
   {
     icon: <BsIcons.BsSortAlphaDownAlt />,
     title: "Z - A",
     link: "z-to-a",
+    data: "todo-sort-button",
   },
   {
     icon: <BsIcons.BsArrowDownUp />,
@@ -134,7 +137,7 @@ const DetailActivity = () => {
               </form>
             ) : (
               <div className={cssModule.Page.inputHide}>
-                <h1 data-cy="todo-title" onClick={HandleClick}>
+                <h1 onClick={HandleClick} data-cy="todo-title">
                   {data?.title}
                 </h1>
                 <button onClick={HandleClick}>
@@ -144,28 +147,35 @@ const DetailActivity = () => {
             )}
           </div>
           <div>
-            <span
+            <button
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
               data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
-            </span>
+            </button>
             {showMenu ? (
               <ul className={cssModule.Page.dropdown}>
                 {DataMenu &&
                   DataMenu.map((item, index) => (
-                    <li onClick={() => LinkSort(item.link)} key={index}>
+                    <li
+                      onClick={() => LinkSort(item.link)}
+                      key={index}
+                      data-cy={item.data}
+                    >
                       <span>{item.icon}</span>
                       <p>{item.title}</p>
                     </li>
                   ))}
               </ul>
             ) : null}
-            <SubComponents.ButtonAdd
-              click={AddModal}
+            <button
+              className={cssModule.Components.buttonAdd}
+              onClick={AddModal}
               data-cy="todo-add-button"
-            />
+            >
+              + tambah
+            </button>
           </div>
         </header>
         <div className={cssModule.Page.detailActivityBottom}>

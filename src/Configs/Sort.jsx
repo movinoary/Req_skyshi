@@ -35,7 +35,6 @@ const AtoZ = ({ data, refetch }) => {
                 key={index}
                 item={item}
                 refetch={refetch}
-                data-cy="todo-sort-button"
               />
             ))}
         </>
@@ -58,7 +57,6 @@ const ZtoA = ({ data, refetch }) => {
                 key={index}
                 item={item}
                 refetch={refetch}
-                data-cy="todo-sort-button"
               />
             ))}
         </>
@@ -103,7 +101,6 @@ const Longest = ({ data, refetch }) => {
                 key={index}
                 item={item}
                 refetch={refetch}
-                data-cy="sort-selection"
               />
             ))}
         </>
