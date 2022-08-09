@@ -58,11 +58,6 @@ const DetailActivity = () => {
 
   const HandleOnClick = () => setShowMenu(!showMenu);
 
-  const LinkSort = link => {
-    navigate(link);
-    HandleOnClick();
-  };
-
   const { isLoading, data, refetch } = useQuery(
     "activityTodoCache",
     async () => {
@@ -160,7 +155,7 @@ const DetailActivity = () => {
                 {DataMenu &&
                   DataMenu.map((item, index) => (
                     <li
-                      onClick={() => LinkSort(item.link)}
+                      onClick={() => navigate(item.link)}
                       key={index}
                       data-cy={item.data}
                     >
