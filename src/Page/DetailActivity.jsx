@@ -9,37 +9,6 @@ import * as Configs from "../Configs";
 import * as Components from "../Components";
 import * as SubComponents from "../Components/Sub";
 
-const DataMenu = [
-  {
-    icon: <RiIcons.RiSortDesc />,
-    title: "Terbaru",
-    link: "terbaru",
-  },
-  {
-    icon: <RiIcons.RiSortAsc />,
-    title: "Terlama",
-    link: "terlama",
-    data: "sort-selection",
-  },
-  {
-    icon: <BsIcons.BsSortAlphaDown />,
-    title: "A - Z",
-    link: "a-to-z",
-    data: "todo-sort-button",
-  },
-  {
-    icon: <BsIcons.BsSortAlphaDownAlt />,
-    title: "Z - A",
-    link: "z-to-a",
-    data: "todo-sort-button",
-  },
-  {
-    icon: <BsIcons.BsArrowDownUp />,
-    title: "belum selesai",
-    link: "belum-selesai",
-  },
-];
-
 const DetailActivity = () => {
   const [click, setClick] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -121,13 +90,13 @@ const DetailActivity = () => {
                 onSubmit={e => handleSubmit.mutate(e)}
                 data-cy="todo-title"
               >
+                <input
+                  type="text"
+                  name="title"
+                  onChange={handleChange}
+                  value={form.title}
+                />
                 <button>
-                  <input
-                    type="text"
-                    name="title"
-                    onChange={handleChange}
-                    value={form.title}
-                  />
                   <BsIcons.BsPencil />
                 </button>
               </form>
@@ -150,21 +119,38 @@ const DetailActivity = () => {
             >
               <BsIcons.BsArrowDownUp />
             </button>
-            {showMenu ? (
-              <ul className={cssModule.Page.dropdown}>
-                {DataMenu &&
-                  DataMenu.map((item, index) => (
-                    <li
-                      onClick={() => navigate(item.link)}
-                      key={index}
-                      data-cy={item.data}
-                    >
-                      <span>{item.icon}</span>
-                      <p>{item.title}</p>
-                    </li>
-                  ))}
-              </ul>
-            ) : null}
+            <ul className={cssModule.Page.dropdown}>
+              <li onClick={() => navigate("terbaru")}>
+                <span>
+                  <RiIcons.RiSortDesc />
+                </span>
+                <p>Terbaru</p>
+              </li>
+              <li onClick={() => navigate("terlama")} data-cy="sort-selection">
+                <span>
+                  <RiIcons.RiSortAsc />
+                </span>
+                <p>Terlama</p>
+              </li>
+              <li onClick={() => navigate("a-to-z")} data-cy="todo-sort-button">
+                <span>
+                  <BsIcons.BsSortAlphaDown />
+                </span>
+                <p>A - Z</p>
+              </li>
+              <li onClick={() => navigate("z-to-a")}>
+                <span>
+                  <BsIcons.BsSortAlphaDownAlt />
+                </span>
+                <p>Z - A</p>
+              </li>
+              <li onClick={() => navigate("belum-selesai")}>
+                <span>
+                  <BsIcons.BsArrowDownUp />
+                </span>
+                <p>Belum Selesai</p>
+              </li>
+            </ul>
             <button
               className={cssModule.Components.buttonAdd}
               onClick={AddModal}
