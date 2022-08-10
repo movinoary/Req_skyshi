@@ -115,42 +115,49 @@ const DetailActivity = () => {
             <button
               onClick={HandleOnClick}
               className={cssModule.Page.buttonFilter}
-              data-cy="todo-sort-button"
             >
               <BsIcons.BsArrowDownUp />
             </button>
-            <ul className={cssModule.Page.dropdown}>
-              <li onClick={() => navigate("terbaru")}>
-                <span>
-                  <RiIcons.RiSortDesc />
-                </span>
-                <p>Terbaru</p>
-              </li>
-              <li onClick={() => navigate("terlama")} data-cy="sort-selection">
-                <span>
-                  <RiIcons.RiSortAsc />
-                </span>
-                <p>Terlama</p>
-              </li>
-              <li onClick={() => navigate("a-to-z")} data-cy="todo-sort-button">
-                <span>
-                  <BsIcons.BsSortAlphaDown />
-                </span>
-                <p>A - Z</p>
-              </li>
-              <li onClick={() => navigate("z-to-a")}>
-                <span>
-                  <BsIcons.BsSortAlphaDownAlt />
-                </span>
-                <p>Z - A</p>
-              </li>
-              <li onClick={() => navigate("belum-selesai")}>
-                <span>
-                  <BsIcons.BsArrowDownUp />
-                </span>
-                <p>Belum Selesai</p>
-              </li>
-            </ul>
+            {showMenu ? (
+              <ul className={cssModule.Page.dropdown}>
+                <li onClick={() => navigate("terbaru")}>
+                  <span>
+                    <RiIcons.RiSortDesc />
+                  </span>
+                  <p>Terbaru</p>
+                </li>
+                <li
+                  onClick={() => navigate("terlama")}
+                  data-cy="sort-selection"
+                >
+                  <span>
+                    <RiIcons.RiSortAsc />
+                  </span>
+                  <p>Terlama</p>
+                </li>
+                <li
+                  onClick={() => navigate("a-to-z")}
+                  data-cy="todo-sort-button"
+                >
+                  <span>
+                    <BsIcons.BsSortAlphaDown />
+                  </span>
+                  <p>A - Z</p>
+                </li>
+                <li onClick={() => navigate("z-to-a")}>
+                  <span>
+                    <BsIcons.BsSortAlphaDownAlt />
+                  </span>
+                  <p>Z - A</p>
+                </li>
+                <li onClick={() => navigate("belum-selesai")}>
+                  <span>
+                    <BsIcons.BsArrowDownUp />
+                  </span>
+                  <p>Belum Selesai</p>
+                </li>
+              </ul>
+            ) : null}
             <button
               className={cssModule.Components.buttonAdd}
               onClick={AddModal}
