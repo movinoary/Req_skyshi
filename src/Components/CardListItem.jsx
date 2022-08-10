@@ -71,12 +71,12 @@ const CardListItem = ({ item, refetch }) => {
       />
       {message && message}
       <figure className={cssModule.Components.cardListItem}>
-        <div>
+        <div data-cy="todo-item-title">
           {complete ? (
             <div className={cssModule.Components.complate}>
               <button onClick={HandleClick}>V</button>
               <div className={`circle color-${item.priority}`} />
-              <h3 data-cy="todo-item-title">{item.title}</h3>
+              <h3>{item.title}</h3>
               <span onClick={() => EditModal(item.id)}>
                 <BsIcons.BsPencil />
               </span>

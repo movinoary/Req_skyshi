@@ -102,7 +102,12 @@ const ModalAdd = ({ showModal, setShowModal, dataId, refetch }) => {
                     onChange={handleOnChange}
                   >
                     <option hidden>priority</option>
-                    <option value="very-high">Very High</option>
+                    <option
+                      value="very-high"
+                      data-cy="modal-add-priority-dropdown"
+                    >
+                      Very High
+                    </option>
                     <option value="high">High</option>
                     <option value="normal">Medium</option>
                     <option value="low">Low</option>
